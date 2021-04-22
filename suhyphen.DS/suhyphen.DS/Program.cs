@@ -6,7 +6,8 @@ namespace suhyphen.DS
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SinglyLinkedList.Runner.Run();
+            Console.ReadKey();
         }
     }
 }
