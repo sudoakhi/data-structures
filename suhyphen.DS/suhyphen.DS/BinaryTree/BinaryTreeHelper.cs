@@ -40,6 +40,40 @@ namespace suhyphen.DS.BinaryTree
             }
         }
 
+        // Find the deepest Node in the Binary Tree
+        // Replace the value to be deleted with the value of the deepest Node
+        // Delete the deepest Node
+        internal void Delete(BinaryTree binaryTree, int value)
+        {
+            Node rootNode = binaryTree.Root;
+            Queue<Node> nodeQueue = new Queue<Node>();
+            nodeQueue.Enqueue(rootNode);
+            while (nodeQueue.Count > 0)
+            {
+                Node currentNode = nodeQueue.Dequeue();
+                if(currentNode.Data == value)
+                {
+                    currentNode.Data = GetDeepestNode(binaryTree.Root).Data;
+                    DeleteDeepestNode(binaryTree.Root);
+                    return;
+                }
+                else
+                {
+                    if(currentNode.Left != null)
+                    {
+                        nodeQueue.Enqueue(currentNode.Left);
+                    }
+
+                    if(currentNode.Right != null)
+                    {
+                        nodeQueue.Enqueue(currentNode.Right);
+                    }
+                }
+            }
+
+            Console.WriteLine("Value nor present in the Binary Tree");
+        }
+
         internal void RecursiveInorderTraversal(Node node)
         {
             if(node == null)
@@ -122,5 +156,57 @@ namespace suhyphen.DS.BinaryTree
 
             return false;
         }
+
+        #region Private Functions
+        private void DeleteDeepestNode(Node rootNode)
+        {
+            Queue<Node> nodeQueue = new Queue<Node>();
+            nodeQueue.Enqueue(rootNode);
+            Node currentNode = null;
+            while (nodeQueue.Count > 0)
+            {
+                Node previousNode = currentNode;
+                currentNode = nodeQueue.Dequeue();
+
+                if (currentNode.Left == null)
+                {
+                    previousNode.Right = null;
+                    return;
+                }
+
+                if (currentNode.Right == null)
+                {
+                    currentNode.Left = null;
+                    return;
+                }
+
+                nodeQueue.Enqueue(currentNode.Left);
+                nodeQueue.Enqueue(currentNode.Right);
+            }
+        }
+
+        private Node GetDeepestNode(Node rootNode)
+        {
+            Queue<Node> nodeQueue = new Queue<Node>();
+            nodeQueue.Enqueue(rootNode);
+            Node currentNode = null;
+            while (nodeQueue.Count > 0)
+            {
+                currentNode = nodeQueue.Dequeue();
+
+                if (currentNode.Left != null)
+                {
+                    nodeQueue.Enqueue(currentNode.Left);
+                }
+
+                if (currentNode.Right != null)
+                {
+                    nodeQueue.Enqueue(currentNode.Right);
+                }
+            }
+
+            return currentNode;
+        }
+        #endregion
     }
 }

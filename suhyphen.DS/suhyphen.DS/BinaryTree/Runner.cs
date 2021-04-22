@@ -40,6 +40,18 @@ namespace suhyphen.DS.BinaryTree
             // This should output: False
             isValuePresent = binaryTreeHelper.IsValuePresent(binaryTree.Root, 99);
             Console.WriteLine(isValuePresent);
+
+            binaryTreeHelper.Delete(binaryTree, 20);
+
+            //This should output: 222 100 3 50 15 250 35
+            binaryTreeHelper.LevelOrderTraversal(binaryTree.Root);
+            Console.WriteLine();
+
+            binaryTreeHelper.Delete(binaryTree, 3);
+
+            //This should output: 222 100 35 50 15 250
+            binaryTreeHelper.LevelOrderTraversal(binaryTree.Root);
+            Console.WriteLine();
         }
     }
 }
