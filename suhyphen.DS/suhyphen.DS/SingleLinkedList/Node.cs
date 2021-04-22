@@ -1,4 +1,4 @@
-﻿namespace suhyphen.DS.SinglyLinkedList
+﻿namespace suhyphen.DS.SingleLinkedList
 {
     internal class Node
     {

@@ -1,11 +1,9 @@
 ﻿using System;
 
-namespace suhyphen.DS.SinglyLinkedList
+namespace suhyphen.DS.SingleLinkedList
 {
-    internal class SingleLinkedList
+    internal class SingleLinkedListHelper
     {
-        internal Node Head;
-
         internal void InsertFront(SingleLinkedList singleLinkedList, int newData)
         {
             Node newNode = new Node(newData)
@@ -19,13 +17,13 @@ namespace suhyphen.DS.SinglyLinkedList
         {
             Node newNode = new Node(newData);
             Node temp = singleLinkedList.Head;
-            if(temp == null)
+            if (temp == null)
             {
-                Head = newNode;
+                singleLinkedList.Head = newNode;
                 return;
             }
 
-            while(temp.Next != null)
+            while (temp.Next != null)
             {
                 temp = temp.Next;
             }
@@ -38,13 +36,13 @@ namespace suhyphen.DS.SinglyLinkedList
             Node temp = singleLinkedList.Head;
             Node previousNode = null;
 
-            if(temp != null && temp.Data == key)
+            if (temp != null && temp.Data == key)
             {
                 singleLinkedList.Head = temp.Next;
                 return;
             }
 
-            while(temp != null && temp.Data != key)
+            while (temp != null && temp.Data != key)
             {
                 previousNode = temp;
                 temp = temp.Next;
@@ -53,9 +51,9 @@ namespace suhyphen.DS.SinglyLinkedList
             previousNode.Next = temp.Next;
         }
 
-        internal void Traverse(SingleLinkedList singlyList)
+        internal void Traverse(SingleLinkedList singleLinkedList)
         {
-            Node temp = singlyList.Head;
+            Node temp = singleLinkedList.Head;
             while (temp != null)
             {
                 Console.Write(temp.Data + " ");
