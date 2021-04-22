@@ -7,7 +7,8 @@ namespace suhyphen.DS
         static void Main(string[] args)
         {
             //SingleLinkedList.Runner.Run();
-            BinaryTree.Runner.Run();
+            //BinaryTree.Runner.Run();
+            BinarySearchTree.Runner.Run();
             Console.ReadKey();
         }
     }
