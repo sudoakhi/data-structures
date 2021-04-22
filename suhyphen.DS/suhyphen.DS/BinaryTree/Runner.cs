@@ -28,6 +28,10 @@ namespace suhyphen.DS.BinaryTree
             //This should output: 222 50 15 100 250 35 3 20
             binaryTreeHelper.RecursivePostorderTraversal(binaryTree.Root);
             Console.WriteLine();
+
+            //This should output: 20 100 3 50 15 250 35 222
+            binaryTreeHelper.LevelOrderTraversal(binaryTree.Root);
+            Console.WriteLine();
         }
     }
 }

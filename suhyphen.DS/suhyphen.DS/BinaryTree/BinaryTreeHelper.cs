@@ -74,5 +74,26 @@ namespace suhyphen.DS.BinaryTree
             RecursivePostorderTraversal(node.Right);
             Console.Write(node.Data + " ");
         }
+
+        internal void LevelOrderTraversal(Node rootNode)
+        {
+            Queue<Node> nodeQueue = new Queue<Node>();
+            nodeQueue.Enqueue(rootNode);
+            while(nodeQueue.Count > 0)
+            {
+                Node currentNode = nodeQueue.Dequeue();
+                Console.Write(currentNode.Data + " ");
+
+                if(currentNode.Left != null)
+                {
+                    nodeQueue.Enqueue(currentNode.Left);
+                }
+
+                if(currentNode.Right != null)
+                {
+                    nodeQueue.Enqueue(currentNode.Right);
+                }
+            }
+        }
     }
 }
