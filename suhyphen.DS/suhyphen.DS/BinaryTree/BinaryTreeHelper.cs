@@ -5,6 +5,7 @@ namespace suhyphen.DS.BinaryTree
 {
     internal class BinaryTreeHelper
     {
+        // Insert a Node at the first empty location
         internal void Insert(BinaryTree binaryTree, int value)
         {
             Node newNode = new Node(value);
@@ -94,6 +95,32 @@ namespace suhyphen.DS.BinaryTree
                     nodeQueue.Enqueue(currentNode.Right);
                 }
             }
+        }
+
+        internal bool IsValuePresent(Node rootNode, int value)
+        {
+            Queue<Node> nodeQueue = new Queue<Node>();
+            nodeQueue.Enqueue(rootNode);
+            while (nodeQueue.Count > 0)
+            {
+                Node currentNode = nodeQueue.Dequeue();
+                if(currentNode.Data == value)
+                {
+                    return true;
+                }
+
+                if (currentNode.Left != null)
+                {
+                    nodeQueue.Enqueue(currentNode.Left);
+                }
+
+                if (currentNode.Right != null)
+                {
+                    nodeQueue.Enqueue(currentNode.Right);
+                }
+            }
+
+            return false;
         }
     }
 }

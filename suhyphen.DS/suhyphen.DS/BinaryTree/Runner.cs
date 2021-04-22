@@ -32,6 +32,14 @@ namespace suhyphen.DS.BinaryTree
             //This should output: 20 100 3 50 15 250 35 222
             binaryTreeHelper.LevelOrderTraversal(binaryTree.Root);
             Console.WriteLine();
+
+            // This should output: True
+            bool isValuePresent = binaryTreeHelper.IsValuePresent(binaryTree.Root, 100);
+            Console.WriteLine(isValuePresent);
+
+            // This should output: False
+            isValuePresent = binaryTreeHelper.IsValuePresent(binaryTree.Root, 99);
+            Console.WriteLine(isValuePresent);
         }
     }
 }
