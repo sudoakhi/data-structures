@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace suhyphen.DS.GraphAdjacencyList
+﻿namespace suhyphen.DS.GraphAdjacencyList
 {
     internal class AdjacencyListNode
     {
-        internal string Value;
+        internal string Vertex;
         internal float Weight;
 
-        public AdjacencyListNode(string value, float weight)
+        public AdjacencyListNode(string vertex, float weight)
         {
-            Value = value;
+            Vertex = vertex;
             Weight = weight;
         }
     }
