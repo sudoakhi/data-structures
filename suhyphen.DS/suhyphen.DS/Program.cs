@@ -6,7 +6,11 @@ namespace suhyphen.DS
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //SingleLinkedList.Runner.Run();
+            //BinaryTree.Runner.Run();
+            //BinarySearchTree.Runner.Run();
+            GraphAdjacencyList.Runner.Run();
+            Console.ReadKey();
         }
     }
 }
