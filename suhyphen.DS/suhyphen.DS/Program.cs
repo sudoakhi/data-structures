@@ -8,7 +8,8 @@ namespace suhyphen.DS
         {
             //SingleLinkedList.Runner.Run();
             //BinaryTree.Runner.Run();
-            BinarySearchTree.Runner.Run();
+            //BinarySearchTree.Runner.Run();
+            GraphAdjacencyList.Runner.Run();
             Console.ReadKey();
         }
     }
