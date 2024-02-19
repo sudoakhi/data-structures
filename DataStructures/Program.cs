@@ -11,8 +11,9 @@ namespace DataStructures
             //GraphAdjacencyList.Runner.Run();
             //PrefixTrie.Runner.Run();
             //SingleLinkedList.Runner.Run();
-            SuffixTrie.Runner.Run();
-			_ = Console.ReadKey();
+            //SuffixTrie.Runner.Run();
+            MinHeap.Runner.Run();
+            _ = Console.ReadKey();
         }
     }
 }
