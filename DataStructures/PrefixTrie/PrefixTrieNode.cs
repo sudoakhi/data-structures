@@ -18,34 +18,5 @@ namespace DataStructures.PrefixTrie
             _depth = depth;
             _parent = parent;
         }
-
-        public bool IsLeaf()
-        {
-            return _children.Count == 0;
-        }
-
-        public PrefixTrieNode FindChildNode(char c)
-        {
-            foreach (var trieNode in _children)
-            {
-                if (trieNode._value == c)
-                {
-                    return trieNode;
-                }
-            }
-
-            return null;
-        }
-
-        public void DeleteChildNode(char c)
-        {
-            for(var i=0; i< _children.Count; i++)
-            {
-                if (_children[i]._value == c)
-                {
-                    _children.RemoveAt(i);
-                }
-            }
-        }
     }
 }
