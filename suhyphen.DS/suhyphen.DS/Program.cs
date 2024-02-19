@@ -6,10 +6,12 @@ namespace suhyphen.DS
     {
         static void Main(string[] args)
         {
-            //SingleLinkedList.Runner.Run();
-            //BinaryTree.Runner.Run();
             //BinarySearchTree.Runner.Run();
-            GraphAdjacencyList.Runner.Run();
+            //BinaryTree.Runner.Run();
+            //GraphAdjacencyList.Runner.Run();
+            //PrefixTrie.Runner.Run();
+            //SingleLinkedList.Runner.Run();
+            SuffixTrie.Runner.Run();
             Console.ReadKey();
         }
     }
