@@ -6,9 +6,11 @@ This repository contains a collection of commonly used data structures implement
 
 1. [Introduction](#introduction)
 2. [Data Structures Implemented](#data-structures-implemented)
-3. [Usage](#usage)
+3. [Explore](#explore)
 4. [Contributing](#contributing)
-5. [License](#license)
+5. [Usage](#usage)
+6. [License](#license)
+7. [Contact](#contact)
 
 ## Introduction
 
