@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace suhyphen.DS.PrefixTrie
+namespace Suhyphen.DS.PrefixTrie
 {
     public class PrefixTrie
     {
-        internal PrefixTrieNode Root;
+        internal PrefixTrieNode _root;
 
         public PrefixTrie()
         {
-            Root = new PrefixTrieNode('^', 0, null);
+            _root = new PrefixTrieNode('^', 0, null);
         }
     }
 }

@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace suhyphen.DS.GraphAdjacencyList
+namespace Suhyphen.DS.GraphAdjacencyList
 {
     internal class GraphHelper
     {
         public static void DisplayGraph(Graph graph)
         {
-            Console.WriteLine("Displaying Contents of the Graph ...");
-            foreach (var entry in graph.VertexAdjacencyListNodesMap)
+            foreach (var entry in graph._vertexAdjacencyListNodesMap)
             {
-                List<AdjacencyListNode> adjacencyListNodes = entry.Value;
-                foreach(AdjacencyListNode adjacencyListNode in adjacencyListNodes)
+                var adjacencyListNodes = entry.Value;
+                foreach(var adjacencyListNode in adjacencyListNodes)
                 {
-                    Console.Write("Vertex: " + entry.Key + " ==> " + adjacencyListNode.Vertex + "|" + adjacencyListNode.Weight + "\t");
+                    Console.Write("Vertex: " + entry.Key + " ==> " + adjacencyListNode._vertex + "|" + adjacencyListNode._weight + "\t");
                 }
 
                 Console.WriteLine();
@@ -23,24 +22,24 @@ namespace suhyphen.DS.GraphAdjacencyList
         // Works for Connected and Undirected Graph
         public static void DepthFirstTraversal(Graph graph, string rootVertex)
         {
-            List<string> depthFirstOrder = new List<string>();
-            Stack<string> vertexStack = new Stack<string>();
+            var depthFirstOrder = new List<string>();
+            var vertexStack = new Stack<string>();
             vertexStack.Push(rootVertex);
             while(vertexStack.Count > 0)
             {
-                string currentVertex = vertexStack.Pop();
+                var currentVertex = vertexStack.Pop();
                 depthFirstOrder.Add(currentVertex);
-                List<AdjacencyListNode> adjacencyListNodes = graph.VertexAdjacencyListNodesMap[currentVertex];
-                foreach(AdjacencyListNode adjacencyListNode in adjacencyListNodes)
+                var adjacencyListNodes = graph._vertexAdjacencyListNodesMap[currentVertex];
+                foreach(var adjacencyListNode in adjacencyListNodes)
                 {
-                    if(!depthFirstOrder.Contains(adjacencyListNode.Vertex) && !vertexStack.Contains(adjacencyListNode.Vertex))
+                    if(!depthFirstOrder.Contains(adjacencyListNode._vertex) && !vertexStack.Contains(adjacencyListNode._vertex))
                     {
-                        vertexStack.Push(adjacencyListNode.Vertex);
+                        vertexStack.Push(adjacencyListNode._vertex);
                     }
                 }
             }
 
-            foreach(string vertex in depthFirstOrder)
+            foreach(var vertex in depthFirstOrder)
             {
                 Console.Write(vertex + " ");
             }
@@ -51,24 +50,24 @@ namespace suhyphen.DS.GraphAdjacencyList
         // Works for Connected and Undirected Graph
         public static void BreadthFirstTraversal(Graph graph, string rootVertex)
         {
-            List<string> breadthFirstOrder = new List<string>();
-            Queue<string> vertexQueue = new Queue<string>();
+            var breadthFirstOrder = new List<string>();
+            var vertexQueue = new Queue<string>();
             vertexQueue.Enqueue(rootVertex);
             while(vertexQueue.Count > 0)
             {
-                string currentVertex = vertexQueue.Dequeue();
+                var currentVertex = vertexQueue.Dequeue();
                 breadthFirstOrder.Add(currentVertex);
-                List<AdjacencyListNode> adjacencyListNodes = graph.VertexAdjacencyListNodesMap[currentVertex];
-                foreach (AdjacencyListNode adjacencyListNode in adjacencyListNodes)
+                var adjacencyListNodes = graph._vertexAdjacencyListNodesMap[currentVertex];
+                foreach (var adjacencyListNode in adjacencyListNodes)
                 {
-                    if (!breadthFirstOrder.Contains(adjacencyListNode.Vertex) && !vertexQueue.Contains(adjacencyListNode.Vertex))
+                    if (!breadthFirstOrder.Contains(adjacencyListNode._vertex) && !vertexQueue.Contains(adjacencyListNode._vertex))
                     {
-                        vertexQueue.Enqueue(adjacencyListNode.Vertex);
+                        vertexQueue.Enqueue(adjacencyListNode._vertex);
                     }
                 }
             }
 
-            foreach (string vertex in breadthFirstOrder)
+            foreach (var vertex in breadthFirstOrder)
             {
                 Console.Write(vertex + " ");
             }

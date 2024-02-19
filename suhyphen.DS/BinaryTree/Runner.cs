@@ -1,56 +1,56 @@
 ﻿using System;
 
-namespace suhyphen.DS.BinaryTree
+namespace Suhyphen.DS.BinaryTree
 {
     internal class Runner
     {
         public static void Run()
         {
-            BinaryTree binaryTree = new BinaryTree();
-            BinaryTreeHelper binaryTreeHelper = new BinaryTreeHelper();
-            binaryTreeHelper.Insert(binaryTree, 20);
-            binaryTreeHelper.Insert(binaryTree, 100);
-            binaryTreeHelper.Insert(binaryTree, 3);
-            binaryTreeHelper.Insert(binaryTree, 50);
-            binaryTreeHelper.Insert(binaryTree, 15);
-            binaryTreeHelper.Insert(binaryTree, 250);
-            binaryTreeHelper.Insert(binaryTree, 35);
-            binaryTreeHelper.Insert(binaryTree, 222);
+            var binaryTree = new BinaryTree();
+            var binaryTreeHelper = new BinaryTreeHelper();
+			BinaryTreeHelper.Insert ( binaryTree, 20);
+			BinaryTreeHelper.Insert ( binaryTree, 100);
+			BinaryTreeHelper.Insert ( binaryTree, 3);
+			BinaryTreeHelper.Insert ( binaryTree, 50);
+			BinaryTreeHelper.Insert ( binaryTree, 15);
+			BinaryTreeHelper.Insert ( binaryTree, 250);
+			BinaryTreeHelper.Insert ( binaryTree, 35);
+			BinaryTreeHelper.Insert ( binaryTree, 222);
 
-            //This should output: 222 50 100 15 20 250 3 35
-            binaryTreeHelper.RecursiveInorderTraversal(binaryTree.Root);
+			//This should output: 222 50 100 15 20 250 3 35
+			BinaryTreeHelper.RecursiveInorderTraversal ( binaryTree._root);
             Console.WriteLine();
 
-            //This should output: 20 100 50 222 15 3 250 35
-            binaryTreeHelper.RecursivePreorderTraversal(binaryTree.Root);
+			//This should output: 20 100 50 222 15 3 250 35
+			BinaryTreeHelper.RecursivePreorderTraversal ( binaryTree._root);
             Console.WriteLine();
 
-            //This should output: 222 50 15 100 250 35 3 20
-            binaryTreeHelper.RecursivePostorderTraversal(binaryTree.Root);
+			//This should output: 222 50 15 100 250 35 3 20
+			BinaryTreeHelper.RecursivePostorderTraversal ( binaryTree._root);
             Console.WriteLine();
 
-            //This should output: 20 100 3 50 15 250 35 222
-            binaryTreeHelper.LevelOrderTraversal(binaryTree.Root);
+			//This should output: 20 100 3 50 15 250 35 222
+			BinaryTreeHelper.LevelOrderTraversal ( binaryTree._root);
             Console.WriteLine();
 
             // This should output: True
-            bool isValuePresent = binaryTreeHelper.IsValuePresent(binaryTree.Root, 100);
+            var isValuePresent = BinaryTreeHelper.IsValuePresent(binaryTree._root, 100);
             Console.WriteLine(isValuePresent);
 
             // This should output: False
-            isValuePresent = binaryTreeHelper.IsValuePresent(binaryTree.Root, 99);
+            isValuePresent = BinaryTreeHelper.IsValuePresent ( binaryTree._root, 99);
             Console.WriteLine(isValuePresent);
 
-            binaryTreeHelper.Delete(binaryTree, 20);
+			BinaryTreeHelper.Delete ( binaryTree, 20);
 
-            //This should output: 222 100 3 50 15 250 35
-            binaryTreeHelper.LevelOrderTraversal(binaryTree.Root);
+			//This should output: 222 100 3 50 15 250 35
+			BinaryTreeHelper.LevelOrderTraversal ( binaryTree._root);
             Console.WriteLine();
 
-            binaryTreeHelper.Delete(binaryTree, 3);
+			BinaryTreeHelper.Delete ( binaryTree, 3);
 
-            //This should output: 222 100 35 50 15 250
-            binaryTreeHelper.LevelOrderTraversal(binaryTree.Root);
+			//This should output: 222 100 35 50 15 250
+			BinaryTreeHelper.LevelOrderTraversal ( binaryTree._root);
             Console.WriteLine();
         }
     }

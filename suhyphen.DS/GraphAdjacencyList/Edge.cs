@@ -1,16 +1,16 @@
-﻿namespace suhyphen.DS.GraphAdjacencyList
+﻿namespace Suhyphen.DS.GraphAdjacencyList
 {
     internal class Edge
     {
-        internal string SourceVertex;
-        internal string DestinationVertex;
-        internal int Weight;
+        internal string _sourceVertex;
+        internal string _destinationVertex;
+        internal int _weight;
 
         public Edge(string sourceVertex, string destinationVertex, int weight)
         {
-            SourceVertex = sourceVertex;
-            DestinationVertex = destinationVertex;
-            Weight = weight;
+            _sourceVertex = sourceVertex;
+            _destinationVertex = destinationVertex;
+            _weight = weight;
         }
     }
 }

@@ -1,14 +1,14 @@
-﻿namespace suhyphen.DS.GraphAdjacencyList
+﻿namespace Suhyphen.DS.GraphAdjacencyList
 {
     internal class AdjacencyListNode
     {
-        internal string Vertex;
-        internal float Weight;
+        internal string _vertex;
+        internal float _weight;
 
         public AdjacencyListNode(string vertex, float weight)
         {
-            Vertex = vertex;
-            Weight = weight;
+            _vertex = vertex;
+            _weight = weight;
         }
     }
 }

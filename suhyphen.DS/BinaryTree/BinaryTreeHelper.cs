@@ -1,33 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace suhyphen.DS.BinaryTree
+namespace Suhyphen.DS.BinaryTree
 {
     internal class BinaryTreeHelper
     {
         // Insert a Node at the first empty location
-        internal void Insert(BinaryTree binaryTree, int value)
+        internal static void Insert(BinaryTree binaryTree, int value)
         {
-            Node newNode = new Node(value);
-            Node rootNode = binaryTree.Root;
+            var newNode = new BinaryTreeNode(value);
+            var rootNode = binaryTree._root;
 
-            if(rootNode == null)
+            if (rootNode == null)
             {
-                binaryTree.Root = newNode;
+                binaryTree._root = newNode;
                 return;
             }
 
-            Queue<Node> nodeQueue = new Queue<Node>();
+            var nodeQueue = new Queue<BinaryTreeNode>();
             nodeQueue.Enqueue(rootNode);
-            while(nodeQueue.Count > 0)
+            while (nodeQueue.Count > 0)
             {
-                Node currentNode = nodeQueue.Dequeue();
-                if(currentNode.Left == null)
+                var currentNode = nodeQueue.Dequeue();
+                if (currentNode.Left == null)
                 {
                     currentNode.Left = newNode;
                     return;
                 }
-                else if(currentNode.Right == null)
+                else if (currentNode.Right == null)
                 {
                     currentNode.Right = newNode;
                     return;
@@ -43,50 +43,48 @@ namespace suhyphen.DS.BinaryTree
         // Find the deepest Node in the Binary Tree
         // Replace the value to be deleted with the value of the deepest Node
         // Delete the deepest Node
-        internal void Delete(BinaryTree binaryTree, int value)
+        internal static void Delete(BinaryTree binaryTree, int value)
         {
-            Node rootNode = binaryTree.Root;
-            Queue<Node> nodeQueue = new Queue<Node>();
+            var rootNode = binaryTree._root;
+            var nodeQueue = new Queue<BinaryTreeNode>();
             nodeQueue.Enqueue(rootNode);
             while (nodeQueue.Count > 0)
             {
-                Node currentNode = nodeQueue.Dequeue();
-                if(currentNode.Data == value)
+                var currentNode = nodeQueue.Dequeue();
+                if (currentNode.Data == value)
                 {
-                    currentNode.Data = GetDeepestNode(binaryTree.Root).Data;
-                    DeleteDeepestNode(binaryTree.Root);
+                    currentNode.Data = GetDeepestNode ( binaryTree._root).Data;
+					DeleteDeepestNode ( binaryTree._root);
                     return;
                 }
                 else
                 {
-                    if(currentNode.Left != null)
+                    if (currentNode.Left != null)
                     {
                         nodeQueue.Enqueue(currentNode.Left);
                     }
 
-                    if(currentNode.Right != null)
+                    if (currentNode.Right != null)
                     {
                         nodeQueue.Enqueue(currentNode.Right);
                     }
                 }
             }
-
-            Console.WriteLine("Value nor present in the Binary Tree");
         }
 
-        internal void RecursiveInorderTraversal(Node node)
+        internal static void RecursiveInorderTraversal(BinaryTreeNode node)
         {
-            if(node == null)
+            if (node == null)
             {
                 return;
             }
 
-            RecursiveInorderTraversal(node.Left);
+			RecursiveInorderTraversal ( node.Left);
             Console.Write(node.Data + " ");
-            RecursiveInorderTraversal(node.Right);
+			RecursiveInorderTraversal ( node.Right);
         }
 
-        internal void RecursivePreorderTraversal(Node node)
+        internal static void RecursivePreorderTraversal(BinaryTreeNode node)
         {
             if (node == null)
             {
@@ -94,51 +92,51 @@ namespace suhyphen.DS.BinaryTree
             }
 
             Console.Write(node.Data + " ");
-            RecursivePreorderTraversal(node.Left);
-            RecursivePreorderTraversal(node.Right);
+			RecursivePreorderTraversal ( node.Left);
+			RecursivePreorderTraversal ( node.Right);
         }
 
-        internal void RecursivePostorderTraversal(Node node)
+        internal static void RecursivePostorderTraversal(BinaryTreeNode node)
         {
             if (node == null)
             {
                 return;
             }
 
-            RecursivePostorderTraversal(node.Left);
-            RecursivePostorderTraversal(node.Right);
+			RecursivePostorderTraversal ( node.Left);
+			RecursivePostorderTraversal ( node.Right);
             Console.Write(node.Data + " ");
         }
 
-        internal void LevelOrderTraversal(Node rootNode)
+        internal static void LevelOrderTraversal(BinaryTreeNode rootNode)
         {
-            Queue<Node> nodeQueue = new Queue<Node>();
+            var nodeQueue = new Queue<BinaryTreeNode>();
             nodeQueue.Enqueue(rootNode);
-            while(nodeQueue.Count > 0)
+            while (nodeQueue.Count > 0)
             {
-                Node currentNode = nodeQueue.Dequeue();
+                var currentNode = nodeQueue.Dequeue();
                 Console.Write(currentNode.Data + " ");
 
-                if(currentNode.Left != null)
+                if (currentNode.Left != null)
                 {
                     nodeQueue.Enqueue(currentNode.Left);
                 }
 
-                if(currentNode.Right != null)
+                if (currentNode.Right != null)
                 {
                     nodeQueue.Enqueue(currentNode.Right);
                 }
             }
         }
 
-        internal bool IsValuePresent(Node rootNode, int value)
+        internal static bool IsValuePresent(BinaryTreeNode rootNode, int value)
         {
-            Queue<Node> nodeQueue = new Queue<Node>();
+            var nodeQueue = new Queue<BinaryTreeNode>();
             nodeQueue.Enqueue(rootNode);
             while (nodeQueue.Count > 0)
             {
-                Node currentNode = nodeQueue.Dequeue();
-                if(currentNode.Data == value)
+                var currentNode = nodeQueue.Dequeue();
+                if (currentNode.Data == value)
                 {
                     return true;
                 }
@@ -158,14 +156,14 @@ namespace suhyphen.DS.BinaryTree
         }
 
         #region Private Functions
-        private void DeleteDeepestNode(Node rootNode)
+        private static void DeleteDeepestNode(BinaryTreeNode rootNode)
         {
-            Queue<Node> nodeQueue = new Queue<Node>();
+            var nodeQueue = new Queue<BinaryTreeNode>();
             nodeQueue.Enqueue(rootNode);
-            Node currentNode = null;
+            BinaryTreeNode currentNode = null;
             while (nodeQueue.Count > 0)
             {
-                Node previousNode = currentNode;
+                var previousNode = currentNode;
                 currentNode = nodeQueue.Dequeue();
 
                 if (currentNode.Left == null)
@@ -185,11 +183,11 @@ namespace suhyphen.DS.BinaryTree
             }
         }
 
-        private Node GetDeepestNode(Node rootNode)
+        private static BinaryTreeNode GetDeepestNode(BinaryTreeNode rootNode)
         {
-            Queue<Node> nodeQueue = new Queue<Node>();
+            var nodeQueue = new Queue<BinaryTreeNode>();
             nodeQueue.Enqueue(rootNode);
-            Node currentNode = null;
+            BinaryTreeNode currentNode = null;
             while (nodeQueue.Count > 0)
             {
                 currentNode = nodeQueue.Dequeue();

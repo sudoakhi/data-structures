@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace suhyphen.DS.PrefixTrie
+namespace Suhyphen.DS.PrefixTrie
 {
     internal class Runner
     {
@@ -11,14 +11,14 @@ namespace suhyphen.DS.PrefixTrie
             string[] strings = {"the", "a", "there", "answer",
                         "any", "by", "bye", "their"};
 
-            PrefixTrie trie = new PrefixTrie();
-            foreach (string s in strings)
+            var trie = new PrefixTrie();
+            foreach (var s in strings)
             {
                 PrefixTrieHelper.Insert(trie, s);
             }
 
             //This should return true
-            bool isStringPresent = PrefixTrieHelper.Search(trie, "there");
+            var isStringPresent = PrefixTrieHelper.Search(trie, "there");
             Console.WriteLine(isStringPresent);
 
             //This should return false

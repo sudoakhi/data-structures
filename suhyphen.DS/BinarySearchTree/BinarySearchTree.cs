@@ -1,7 +1,7 @@
-﻿namespace suhyphen.DS.BinarySearchTree
+﻿namespace Suhyphen.DS.BinarySearchTree
 {
     internal class BinarySearchTree
     {
-        internal Node Root;
+        internal BinarySearchTreeNode _root;
     }
 }

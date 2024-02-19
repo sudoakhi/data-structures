@@ -1,38 +1,38 @@
-﻿namespace suhyphen.DS.SingleLinkedList
+﻿namespace Suhyphen.DS.SingleLinkedList
 {
     internal class Runner
     {
         public static void Run()
         {
-            SingleLinkedList singleLinkedList = new SingleLinkedList();
-            SingleLinkedListHelper singleLinkedListHelper = new SingleLinkedListHelper();
-            singleLinkedListHelper.InsertFront(singleLinkedList, 10);
-            singleLinkedListHelper.InsertFront(singleLinkedList, 11);
-            singleLinkedListHelper.InsertFront(singleLinkedList, 12);
-            singleLinkedListHelper.InsertFront(singleLinkedList, 13);
-            singleLinkedListHelper.InsertFront(singleLinkedList, 14);
+            var singleLinkedList = new SingleLinkedList();
+            var singleLinkedListHelper = new SingleLinkedListHelper();
+			SingleLinkedListHelper.InsertFront ( singleLinkedList, 10);
+			SingleLinkedListHelper.InsertFront ( singleLinkedList, 11);
+			SingleLinkedListHelper.InsertFront ( singleLinkedList, 12);
+			SingleLinkedListHelper.InsertFront ( singleLinkedList, 13);
+			SingleLinkedListHelper.InsertFront ( singleLinkedList, 14);
 
-            // This should output: 14 13 12 11 10
-            singleLinkedListHelper.Traverse(singleLinkedList);
+			// This should output: 14 13 12 11 10
+			SingleLinkedListHelper.Traverse ( singleLinkedList);
 
-            singleLinkedListHelper.InsertLast(singleLinkedList, 50);
-            singleLinkedListHelper.InsertLast(singleLinkedList, 60);
-            singleLinkedListHelper.InsertLast(singleLinkedList, 70);
-            singleLinkedListHelper.InsertLast(singleLinkedList, 80);
+			SingleLinkedListHelper.InsertLast ( singleLinkedList, 50);
+			SingleLinkedListHelper.InsertLast ( singleLinkedList, 60);
+			SingleLinkedListHelper.InsertLast ( singleLinkedList, 70);
+			SingleLinkedListHelper.InsertLast ( singleLinkedList, 80);
 
-            // This should output: 14 13 12 11 10 50 60 70 80
-            singleLinkedListHelper.Traverse(singleLinkedList);
+			// This should output: 14 13 12 11 10 50 60 70 80
+			SingleLinkedListHelper.Traverse ( singleLinkedList);
 
-            singleLinkedListHelper.DeleteNodeByKey(singleLinkedList, 14);
+			SingleLinkedListHelper.DeleteNodeByKey ( singleLinkedList, 14);
 
-            // This should output: 13 12 11 10 50 60 70 80
-            singleLinkedListHelper.Traverse(singleLinkedList);
+			// This should output: 13 12 11 10 50 60 70 80
+			SingleLinkedListHelper.Traverse ( singleLinkedList);
 
-            singleLinkedListHelper.DeleteNodeByKey(singleLinkedList, 60);
-            singleLinkedListHelper.DeleteNodeByKey(singleLinkedList, 12);
+			SingleLinkedListHelper.DeleteNodeByKey ( singleLinkedList, 60);
+			SingleLinkedListHelper.DeleteNodeByKey ( singleLinkedList, 12);
 
-            // This should output: 13 11 10 50 70 80
-            singleLinkedListHelper.Traverse(singleLinkedList);
+			// This should output: 13 11 10 50 70 80
+			SingleLinkedListHelper.Traverse ( singleLinkedList);
         }
     }
 }

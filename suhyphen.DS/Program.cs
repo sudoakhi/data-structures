@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace suhyphen.DS
+namespace Suhyphen.DS
 {
-    class Program
+	internal class Program
     {
-        static void Main(string[] args)
+		private static void Main()
         {
             //BinarySearchTree.Runner.Run();
             //BinaryTree.Runner.Run();
@@ -12,7 +12,7 @@ namespace suhyphen.DS
             //PrefixTrie.Runner.Run();
             //SingleLinkedList.Runner.Run();
             SuffixTrie.Runner.Run();
-            Console.ReadKey();
+			_ = Console.ReadKey();
         }
     }
 }

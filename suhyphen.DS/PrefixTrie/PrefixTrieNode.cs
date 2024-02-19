@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace suhyphen.DS.PrefixTrie
+namespace Suhyphen.DS.PrefixTrie
 {
     public class PrefixTrieNode
     {
@@ -26,7 +26,7 @@ namespace suhyphen.DS.PrefixTrie
 
         public PrefixTrieNode FindChildNode(char c)
         {
-            foreach (PrefixTrieNode trieNode in Children)
+            foreach (var trieNode in Children)
             {
                 if (trieNode.Value == c)
                 {
@@ -39,7 +39,7 @@ namespace suhyphen.DS.PrefixTrie
 
         public void DeleteChildNode(char c)
         {
-            for(int i=0; i< Children.Count; i++)
+            for(var i=0; i< Children.Count; i++)
             {
                 if (Children[i].Value == c)
                 {

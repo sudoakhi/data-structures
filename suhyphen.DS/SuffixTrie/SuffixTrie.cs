@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace suhyphen.DS.SuffixTrie
+namespace Suhyphen.DS.SuffixTrie
 {
     public class SuffixTrie
     {
-        internal SuffixTrieNode Root;
-        internal char EndSymbol = '*';
+        internal SuffixTrieNode _root;
+        internal char _endSymbol = '*';
 
         public SuffixTrie()
         {
-            Root = new SuffixTrieNode();
+            _root = new SuffixTrieNode();
         }
     }
 }

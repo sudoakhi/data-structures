@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace suhyphen.DS.GraphAdjacencyList
+namespace Suhyphen.DS.GraphAdjacencyList
 {
     internal class Runner
     {
         public static void Run()
         {
-            Edge edge1 = new Edge("A", "B", 2);
-            Edge edge2 = new Edge("A", "C", 4);
-            Edge edge3 = new Edge("B", "C", 4);
-            Edge edge4 = new Edge("C", "A", 5);
-            Edge edge5 = new Edge("C", "B", 4);
-            Edge edge6 = new Edge("D", "C", 3);
-            Edge edge7 = new Edge("E", "F", 1);
-            Edge edge8 = new Edge("F", "E", 3);
+            var edge1 = new Edge("A", "B", 2);
+			var edge2 = new Edge("A", "C", 4);
+			var edge3 = new Edge("B", "C", 4);
+			var edge4 = new Edge("C", "A", 5);
+			var edge5 = new Edge("C", "B", 4);
+			var edge6 = new Edge("D", "C", 3);
+			var edge7 = new Edge("E", "F", 1);
+			var edge8 = new Edge("F", "E", 3);
 
-            List<Edge> edgeList = new List<Edge>
+            var edgeList = new List<Edge>
             {
                 edge1,
                 edge2,
@@ -29,25 +29,25 @@ namespace suhyphen.DS.GraphAdjacencyList
                 edge8
             };
 
-            Graph graph = new Graph(edgeList);
+			var graph = new Graph(edgeList);
             GraphHelper.DisplayGraph(graph);
             GraphHelper.DepthFirstTraversal(graph, "A");
             GraphHelper.BreadthFirstTraversal(graph, "A");
 
-            Edge edge11 = new Edge("A", "B", 0);
-            Edge edge12 = new Edge("B", "A", 0);
-            Edge edge13 = new Edge("A", "C", 0);
-            Edge edge14 = new Edge("C", "A", 0);
-            Edge edge15 = new Edge("A", "D", 0);
-            Edge edge16 = new Edge("D", "A", 0);
-            Edge edge17 = new Edge("B", "C", 0);
-            Edge edge18 = new Edge("C", "B", 0);
-            Edge edge19 = new Edge("C", "E", 0);
-            Edge edge20 = new Edge("E", "C", 0);
+			var edge11 = new Edge("A", "B", 0);
+			var edge12 = new Edge("B", "A", 0);
+			var edge13 = new Edge("A", "C", 0);
+			var edge14 = new Edge("C", "A", 0);
+			var edge15 = new Edge("A", "D", 0);
+			var edge16 = new Edge("D", "A", 0);
+			var edge17 = new Edge("B", "C", 0);
+			var edge18 = new Edge("C", "B", 0);
+			var edge19 = new Edge("C", "E", 0);
+			var edge20 = new Edge("E", "C", 0);
 
-            edgeList = new List<Edge>
-            {
-                edge11,
+            edgeList =
+			[
+				edge11 ,
                 edge12,
                 edge13,
                 edge14,
@@ -57,9 +57,9 @@ namespace suhyphen.DS.GraphAdjacencyList
                 edge18,
                 edge19,
                 edge20
-            };
+            ];
 
-            Graph newGraph = new Graph(edgeList);
+			var newGraph = new Graph(edgeList);
             GraphHelper.DisplayGraph(newGraph);
             GraphHelper.DepthFirstTraversal(newGraph, "A");
             GraphHelper.BreadthFirstTraversal(newGraph, "A");

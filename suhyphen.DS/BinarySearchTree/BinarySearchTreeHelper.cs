@@ -2,41 +2,41 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace suhyphen.DS.BinarySearchTree
+namespace Suhyphen.DS.BinarySearchTree
 {
     internal class BinarySearchTreeHelper
     {
-        internal void Insert(BinarySearchTree binarySearchTree, int value)
+        internal static void Insert(BinarySearchTree binarySearchTree, int value)
         {
-            Node rootNode = binarySearchTree.Root;
-            Node newNode = new Node(value);
+            var rootNode = binarySearchTree._root;
+            var newNode = new BinarySearchTreeNode(value);
 
-            if(rootNode == null)
+            if (rootNode == null)
             {
-                binarySearchTree.Root = newNode;
+                binarySearchTree._root = newNode;
             }
             else
             {
-                Node currentNode = rootNode;
+                var currentNode = rootNode;
 
-                while(true)
+                while (true)
                 {
-                    Node parentNode = currentNode;
-                    if(newNode.Data < currentNode.Data)
+                    var parentNode = currentNode;
+                    if (newNode._data < currentNode._data)
                     {
-                        currentNode = currentNode.Left;
-                        if(currentNode == null)
+                        currentNode = currentNode._left;
+                        if (currentNode == null)
                         {
-                            parentNode.Left = newNode;
+                            parentNode._left = newNode;
                             return;
                         }
                     }
                     else
                     {
-                        currentNode = currentNode.Right;
-                        if(currentNode == null)
+                        currentNode = currentNode._right;
+                        if (currentNode == null)
                         {
-                            parentNode.Right = newNode;
+                            parentNode._right = newNode;
                             return;
                         }
                     }
@@ -44,21 +44,16 @@ namespace suhyphen.DS.BinarySearchTree
             }
         }
 
-        internal void Delete(BinarySearchTree binarySearchTree, int value)
-        {
-            //TODO
-        }
-
-        internal void RecursiveInorderTraversal(Node node)
+        internal static void RecursiveInorderTraversal(BinarySearchTreeNode node)
         {
             if (node == null)
             {
                 return;
             }
 
-            RecursiveInorderTraversal(node.Left);
-            Console.Write(node.Data + " ");
-            RecursiveInorderTraversal(node.Right);
+			RecursiveInorderTraversal ( node._left);
+            Console.Write(node._data + " ");
+			RecursiveInorderTraversal ( node._right);
         }
     }
 }

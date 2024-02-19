@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace suhyphen.DS.SuffixTrie
+namespace Suhyphen.DS.SuffixTrie
 {
     internal class SuffixTrieHelper
     {
         public static void Insert(SuffixTrie trie, string str)
         {
-            for (int i = 0; i < str.Length; i++)
+            for (var i = 0; i < str.Length; i++)
             {
                 InsertHelper(trie, i, str);
             }
@@ -16,17 +16,17 @@ namespace suhyphen.DS.SuffixTrie
 
         public static bool Contains(SuffixTrie trie, string str)
         {
-            char endSymbol = trie.EndSymbol;
-            SuffixTrieNode currentNode = trie.Root;
-            for (int i = 0; i < str.Length; i++)
+            var endSymbol = trie._endSymbol;
+            var currentNode = trie._root;
+            for (var i = 0; i < str.Length; i++)
             {
-                char character = str[i];
-                if (!currentNode.Children.ContainsKey(character))
+                var character = str[i];
+                if (!currentNode.Children.TryGetValue(character, out var value))
                 {
                     return false;
                 }
 
-                currentNode = currentNode.Children[character];
+                currentNode = value;
             }
 
             return currentNode.Children.ContainsKey(endSymbol);
@@ -34,18 +34,19 @@ namespace suhyphen.DS.SuffixTrie
 
         public static void InsertHelper(SuffixTrie trie, int i, string str)
         {
-            SuffixTrieNode currentNode = trie.Root;
-            char endSymbol = trie.EndSymbol;
-            for (int j = i; j < str.Length; j++)
+            var currentNode = trie._root;
+            var endSymbol = trie._endSymbol;
+            for (var j = i; j < str.Length; j++)
             {
-                char character = str[j];
-                if (!currentNode.Children.ContainsKey(character))
+                var character = str[j];
+                if (!currentNode.Children.TryGetValue(character, out var value))
                 {
-                    SuffixTrieNode newNode = new SuffixTrieNode();
-                    currentNode.Children.Add(character, newNode);
+                    var newNode = new SuffixTrieNode();
+					value = newNode;
+					currentNode.Children.Add(character, value );
                 }
 
-                currentNode = currentNode.Children[character];
+                currentNode = value;
             }
 
             currentNode.Children[endSymbol] = null;

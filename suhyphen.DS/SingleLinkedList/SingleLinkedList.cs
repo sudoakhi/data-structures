@@ -1,7 +1,7 @@
-﻿namespace suhyphen.DS.SingleLinkedList
+﻿namespace Suhyphen.DS.SingleLinkedList
 {
     internal class SingleLinkedList
     {
-        internal Node Head;
+        internal SingleLinkedListNode _head;
     }
 }
