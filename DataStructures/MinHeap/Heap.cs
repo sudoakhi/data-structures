@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataStructures.MinHeap
 {
-    internal class Heap
+    internal sealed class Heap
     {
         internal List<int> _elements;
 

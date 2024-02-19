@@ -19,7 +19,6 @@ namespace DataStructures.GraphAdjacencyList
             }
         }
 
-        // Works for Connected and Undirected Graph
         public static void DepthFirstTraversal(Graph graph, string rootVertex)
         {
             var depthFirstOrder = new List<string>();
@@ -47,7 +46,6 @@ namespace DataStructures.GraphAdjacencyList
             Console.WriteLine();
         }
 
-        // Works for Connected and Undirected Graph
         public static void BreadthFirstTraversal(Graph graph, string rootVertex)
         {
             var breadthFirstOrder = new List<string>();
