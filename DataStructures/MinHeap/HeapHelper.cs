@@ -63,7 +63,7 @@ namespace DataStructures.MinHeap
         private static void HeapifyInsert(Heap heap)
         {
             var index = heap._elements.Count-1;
-            while(!IsRoot(index) && heap._elements[index] < GetParentIndex(index))
+            while(!IsRoot(index) && heap._elements[index] < GetParent(heap, index))
             {
                 var parentIndex = GetParentIndex(index);
                 (heap._elements[parentIndex], heap._elements[index]) = (heap._elements[index], heap._elements[parentIndex]);
@@ -109,6 +109,11 @@ namespace DataStructures.MinHeap
         private static int GetRightChild(Heap heap , int elementIndex)
         {
             return heap._elements[GetRightChildIndex(elementIndex)];
+        }
+
+        private static int GetParent(Heap heap , int elementIndex)
+        {
+            return heap._elements[GetParentIndex(elementIndex)];
         }
     }
 }
