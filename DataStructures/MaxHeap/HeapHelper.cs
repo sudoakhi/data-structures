@@ -5,17 +5,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
-namespace DataStructures.MinHeap
+namespace DataStructures.MaxHeap
 {
     internal static class HeapHelper
     {
-        internal static void Insert(Heap heap, int element)
+        internal static void Insert(Heap heap , int element)
         {
             heap._elements.Add(element);
             HeapifyInsert(heap);
@@ -23,7 +21,7 @@ namespace DataStructures.MinHeap
 
         internal static void Delete(Heap heap)
         {
-            if(heap._elements.Count == 0)
+            if ( heap._elements.Count == 0 )
             {
                 throw new InvalidOperationException();
             }
@@ -33,42 +31,42 @@ namespace DataStructures.MinHeap
             HeapifyDelete(heap);
         }
 
-        internal static int GetCurrentMinimum(Heap heap)
+        private static void HeapifyInsert(Heap heap)
         {
-            return heap._elements.Count == 0 ? throw new InvalidOperationException( ) : heap._elements[0];
+            var currentIndex = heap._elements.Count-1;
+
+            while(!IsRoot(currentIndex) && heap._elements[currentIndex] > GetParent(heap, currentIndex))
+            {
+                var parentIndex = GetParentIndex(currentIndex);
+                (heap._elements[currentIndex], heap._elements[parentIndex]) = (heap._elements[parentIndex], heap._elements[currentIndex]);
+                currentIndex = parentIndex;
+            }
         }
 
         private static void HeapifyDelete(Heap heap)
         {
             var currentIndex = 0;
-            while(HasLeftChild(heap, currentIndex) )
+            while(HasLeftChild(heap, currentIndex))
             {
-                var smallerIndex = GetLeftChildIndex(currentIndex);
-                if(HasRightChild(heap, currentIndex) && GetRightChild(heap, currentIndex) < GetLeftChild(heap, currentIndex) )
+                var greaterIndex = GetLeftChildIndex(currentIndex);
+                if(HasRightChild(heap, greaterIndex) && GetRightChild(heap, currentIndex) > GetLeftChild(heap, currentIndex))
                 {
-                    smallerIndex = GetRightChildIndex(currentIndex);
+                    greaterIndex = GetRightChildIndex(currentIndex);
                 }
 
-                if (heap._elements[smallerIndex] >= heap._elements[currentIndex])
+                if(heap._elements[greaterIndex] <= heap._elements[currentIndex] )
                 {
                     break;
                 }
 
-                (heap._elements[smallerIndex], heap._elements[currentIndex]) = (heap._elements[currentIndex], heap._elements[ smallerIndex]);
-
-                currentIndex = smallerIndex;
+                (heap._elements[currentIndex], heap._elements[greaterIndex]) = (heap._elements[greaterIndex], heap._elements[currentIndex]);
+                currentIndex = greaterIndex;
             }
         }
 
-        private static void HeapifyInsert(Heap heap)
+        internal static int GetCurrentMaximum(Heap heap)
         {
-            var index = heap._elements.Count-1;
-            while(!IsRoot(index) && heap._elements[index] < GetParent(heap, index))
-            {
-                var parentIndex = GetParentIndex(index);
-                (heap._elements[parentIndex], heap._elements[index]) = (heap._elements[index], heap._elements[parentIndex]);
-                index = parentIndex;
-            }
+            return heap._elements.Count == 0 ? throw new InvalidOperationException() : heap._elements[0];
         }
 
         private static bool IsRoot(int elementIndex)
@@ -78,7 +76,7 @@ namespace DataStructures.MinHeap
 
         private static int GetParentIndex(int elementIndex)
         {
-            return (elementIndex - 1)/2;
+            return (elementIndex - 1) / 2;
         }
 
         private static int GetLeftChildIndex(int elementIndex)
@@ -88,20 +86,20 @@ namespace DataStructures.MinHeap
 
         private static int GetRightChildIndex(int elementIndex)
         {
-            return ( elementIndex * 2 ) + 2;
+            return (elementIndex * 2) + 2;
         }
 
-        private static bool HasLeftChild(Heap heap, int elementIndex)
+        private static bool HasLeftChild(Heap heap , int elementIndex)
         {
-            return (elementIndex * 2) + 1 <= heap._elements.Count-1;
+            return (elementIndex * 2) + 1 <= heap._elements.Count - 1;
         }
 
         private static bool HasRightChild(Heap heap , int elementIndex)
         {
-            return ( elementIndex * 2 ) + 2 <= heap._elements.Count - 1;
+            return (elementIndex * 2) + 2 <= heap._elements.Count - 1;
         }
 
-        private static int GetLeftChild(Heap heap, int elementIndex)
+        private static int GetLeftChild(Heap heap , int elementIndex)
         {
             return heap._elements[GetLeftChildIndex(elementIndex)];
         }
