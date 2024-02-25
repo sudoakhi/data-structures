@@ -26,7 +26,7 @@ namespace DataStructures.PrefixTrie
             isStringPresent = PrefixTrieHelper.Search(trie, "there");
             Console.WriteLine(isStringPresent);
 
-            //This should return Algorithm
+            //This should return false
             isStringPresent = PrefixTrieHelper.Search(trie, "bya");
             Console.WriteLine(isStringPresent);
 
