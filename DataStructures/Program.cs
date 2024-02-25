@@ -13,7 +13,7 @@ namespace DataStructures
             //SingleLinkedList.Runner.Run();
             //SuffixTrie.Runner.Run();
             //MinHeap.Runner.Run();
-            MaxHeap.Runner.Run();
+            //MaxHeap.Runner.Run();
             _ = Console.ReadKey();
         }
     }
