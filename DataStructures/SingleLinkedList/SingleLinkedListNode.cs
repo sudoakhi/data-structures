@@ -2,11 +2,11 @@
 {
     internal sealed class SingleLinkedListNode
     {
-        internal int _data;
+        internal int _value;
         internal SingleLinkedListNode _next;
-        public SingleLinkedListNode(int data)
+        public SingleLinkedListNode(int value)
         {
-            _data = data;
+            _value = value;
             _next = null;
         }
     }

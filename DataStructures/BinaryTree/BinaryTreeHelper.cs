@@ -53,8 +53,8 @@ namespace DataStructures.BinaryTree
                 var currentNode = nodeQueue.Dequeue();
                 if (currentNode._data == value)
                 {
-                    currentNode._data = GetDeepestNode ( binaryTree._root)._data;
-					DeleteDeepestNode ( binaryTree._root);
+                    currentNode._data = GetDeepestNode(binaryTree._root)._data;
+					DeleteDeepestNode(binaryTree._root);
                     return;
                 }
                 else

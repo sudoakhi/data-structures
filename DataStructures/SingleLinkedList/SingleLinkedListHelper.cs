@@ -36,13 +36,13 @@ namespace DataStructures.SingleLinkedList
             var temp = singleLinkedList._head;
             SingleLinkedListNode previousNode = null;
 
-            if (temp != null && temp._data == key)
+            if (temp != null && temp._value == key)
             {
                 singleLinkedList._head = temp._next;
                 return;
             }
 
-            while (temp != null && temp._data != key)
+            while (temp != null && temp._value != key)
             {
                 previousNode = temp;
                 temp = temp._next;
@@ -56,7 +56,7 @@ namespace DataStructures.SingleLinkedList
             var temp = singleLinkedList._head;
             while (temp != null)
             {
-                Console.Write(temp._data + " ");
+                Console.Write(temp._value + " ");
                 temp = temp._next;
             }
 
